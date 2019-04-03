@@ -18,12 +18,13 @@ services:
       - 3306:3306
     volumes:
       - mariadb:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d:z
     environment:
       TZ: America/Argentina/Buenos_Aires
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_USER: testuser
-      MYSQL_PASSWORD: testpassword
-      MYSQL_DATABASE: testdb
+      MYSQL_ROOT_PASSWORD: rootpwd
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pwd
+      MYSQL_DATABASE: shopping_cart
   client:
     build: ./client
     image: nginx:dev
