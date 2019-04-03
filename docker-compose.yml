@@ -9,6 +9,10 @@ services:
     volumes:
       - ./server/html:/var/www/html:z
       - ./server/apache-conf:/etc/apache2:z
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pwd
+      MYSQL_DATABASE: shopping_cart
     depends_on:
       - db
   db:
