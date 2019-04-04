@@ -8,8 +8,10 @@ services:
       - 8080:80
     volumes:
       - ./server/html:/var/www/html:z
+      - ./server/includes:/var/www/includes:z
       - ./server/apache-conf:/etc/apache2:z
     environment:
+      MYSQL_HOST: db
       MYSQL_USER: user
       MYSQL_PASSWORD: pwd
       MYSQL_DATABASE: shopping_cart
