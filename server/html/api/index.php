@@ -1,10 +1,10 @@
 <?php
   session_start();
   
-  if(isset($_SESSION['counter'])) {
-    $_SESSION['counter'] += 1;
+  if(isset($_SESSION['user'])) {
+    error_log("USUARIO LOGUEADO");
   } else {
-    $_SESSION['counter'] = 1;
+    error_log("USUARIO NO ESTA LOGUEADO");
   }
 
   error_log(print_r(apache_request_headers(), TRUE));
