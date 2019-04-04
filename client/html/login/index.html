@@ -6,11 +6,23 @@
     <title>Login</title>
   </head>
   <body>
-    <form id="login-form" accept-charset="utf-8">
-      <input id="username" type="text" name="username" />
-      <input id="password" type="text" name="password" />
-      <button type="submit">Enviar</button>
-    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <form id="login-form" accept-charset="utf-8">
+            <input id="username" type="text" name="username" />
+            <input id="password" type="text" name="password" />
+            <button type="submit" class="right">Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div
+        id="error-msg"
+        class="card-panel red lighten-2 row scale-transition scale-out"
+      >
+        <h5>Nombre de usuario o contraseña incorrectos</h5>
+      </div>
+    </div>
     <script src="script.js" charset="utf-8"></script>
   </body>
 </html>
