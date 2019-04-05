@@ -16,19 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(products => {
       console.log({ products });
+      products.forEach((product, i) => {
+        const productTemplate = document.getElementById("product-card");
+
+        setTimeout(() => {
+          // pasando un `true` hace un deep clone
+          const newProduct = productTemplate.cloneNode(true);
+          newProduct.querySelector(".card-title").innerHTML = product["name"];
+          newProduct.querySelector(".card-image img").src = product["imageUrl"];
+          productTemplate.parentNode.appendChild(newProduct);
+        }, 2000 * (i + 1));
+      });
     })
     .catch(err => {
       console.log({ err });
     });
-
-  for (const i of [0, 1, 2, 3]) {
-    const productTemplate = document.getElementById("product-card");
-
-    setTimeout(() => {
-      // pasando un `true` hace un deep clone
-      const newProduct = productTemplate.cloneNode(true);
-      newProduct.querySelector(".card-title").innerHTML = `Product ${i}`;
-      productTemplate.parentNode.appendChild(newProduct);
-    }, 2000 * (i + 1));
-  }
 });
