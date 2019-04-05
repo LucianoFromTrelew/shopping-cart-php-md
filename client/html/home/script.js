@@ -55,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => {
       console.log({ err });
+      document.querySelectorAll("li.login-link").forEach(el => {
+        el.classList.remove("hide");
+      });
     });
 
   document.querySelector("#logout").addEventListener("click", event => {
