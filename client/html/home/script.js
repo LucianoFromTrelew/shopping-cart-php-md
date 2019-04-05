@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const newProduct = productTemplate.cloneNode(true);
           newProduct.querySelector(".card-title").innerHTML = product["name"];
           newProduct.querySelector(".card-image img").src = product["imageUrl"];
+          newProduct.querySelector(".card-content span").innerHTML =
+            product["description"];
           productTemplate.parentNode.appendChild(newProduct);
         }, 2000 * (i + 1));
       });

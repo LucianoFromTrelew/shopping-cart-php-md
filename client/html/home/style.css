@@ -2,3 +2,9 @@
   height: 50em;
   width: 15em;
 }
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
