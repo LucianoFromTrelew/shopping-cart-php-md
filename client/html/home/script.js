@@ -2,6 +2,10 @@ import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
 import customFetch from "../shared/js/fetch";
 
+const getStock = stock => {
+  return parseInt(stock) === 0 ? "OUT" : parseInt(stock);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   // Iniciando manualmente el modal
   /*
@@ -27,12 +31,22 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           // pasando un `true` hace un deep clone
           const newProduct = productTemplate.cloneNode(true);
+          newProduct.classList.remove("hide");
           newProduct.querySelector(".card-title").innerHTML = product["name"];
           newProduct.querySelector(".card-image img").src = product["imageUrl"];
           newProduct.querySelector(".card-content span").innerHTML =
             product["description"];
+          newProduct.querySelector("#price").innerHTML = `$${product["price"]}`;
+          const stock = getStock(product["stock"]);
+          newProduct.querySelector("#stock").innerHTML = stock;
+          if (stock === "OUT") {
+            const card = newProduct.querySelector(".card");
+            card.classList.add("disabled");
+            card.classList.add("grey");
+            card.classList.add("lighten-2");
+          }
           productTemplate.parentNode.appendChild(newProduct);
-        }, 2000 * (i + 1));
+        }, 1000 * (i + 1));
       });
     })
     .catch(err => {
