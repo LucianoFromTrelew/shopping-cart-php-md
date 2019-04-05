@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(products => {
       console.log({ products });
+      document.querySelector("#spinner").classList.add("scale-out");
+      document.querySelectorAll("li.logout-link").forEach(el => {
+        el.classList.remove("hide");
+      });
       products.forEach((product, i) => {
         const productTemplate = document.getElementById("product-card");
 
