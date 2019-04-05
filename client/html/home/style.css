@@ -8,3 +8,7 @@
 .icon-block .material-icons {
   font-size: inherit;
 }
+.material-icons {
+  display: inline-flex !important;
+  vertical-align: bottom;
+}
