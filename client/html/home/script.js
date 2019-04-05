@@ -13,7 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
   M.AutoInit();
 
   customFetch("/api/products.php/")
-    .then(res => res.json())
+    .then(res => {
+      if (res.status !== 200) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
     .then(products => {
       console.log({ products });
       products.forEach((product, i) => {
@@ -33,4 +38,22 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => {
       console.log({ err });
     });
+
+  document.querySelector("#logout").addEventListener("click", event => {
+    event.preventDefault();
+    customFetch("/api/logout.php/")
+      .then(res => res.json())
+      .then(msg => {
+        M.toast({ html: msg.msg });
+        setTimeout(
+          function() {
+            window.location = "/home/";
+          }.bind(this),
+          1000
+        );
+      })
+      .catch(err => {
+        console.log({ err });
+      });
+  });
 });
