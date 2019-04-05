@@ -1,3 +1,6 @@
+#index-banner {
+  min-height: 80vh;
+}
 .card-image img {
   height: 50em;
   width: 15em;
@@ -11,4 +14,18 @@
 .material-icons {
   display: inline-flex !important;
   vertical-align: bottom;
+}
+
+i.material-icons.tiny {
+  color: red;
+  vertical-align: middle !important;
+}
+
+.btn-floating .material-icons {
+  display: block !important;
+}
+
+.card-action {
+  display: flex;
+  justify-content: space-between;
 }
