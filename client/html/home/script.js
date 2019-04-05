@@ -1,5 +1,6 @@
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
+import customFetch from "../shared/js/fetch";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Iniciando manualmente el modal
@@ -10,6 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // O automáticamente
   M.AutoInit();
+
+  customFetch("/api/products.php/")
+    .then(res => res.json())
+    .then(products => {
+      console.log({ products });
+    })
+    .catch(err => {
+      console.log({ err });
+    });
 
   for (const i of [0, 1, 2, 3]) {
     const productTemplate = document.getElementById("product-card");
