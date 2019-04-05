@@ -30,7 +30,11 @@ if ($stmt = $link->prepare("SELECT * FROM users WHERE username=? AND PASSWORD=?"
     ));
     $stmt->close();
     $link->close();
-    exit;
+} else {
+    http_response_code(500);
+    echo json_encode(array(
+        "msg" => "Something went wrong :/"
+    ));
 }
 
 ?>
