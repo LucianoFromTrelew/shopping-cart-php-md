@@ -37,7 +37,7 @@
               <span
                 id="cart-elements"
                 class="yellow badge hide"
-                data-badge-caption="elementos en el carrito"
+                data-badge-caption="items on your cart"
               ></span>
             </a>
           </li>
@@ -75,8 +75,10 @@
     <div class="section no-pad-bot" id="index-banner">
       <div class="container">
         <h1 class="header center orange-text">Brewery</h1>
-        <br /><br />
 
+        <!--
+          Spinner
+        -->
         <div id="spinner" class="row center scale-transition">
           <div class="preloader-wrapper big active">
             <div class="spinner-layer spinner-blue-only">
@@ -87,6 +89,17 @@
           </div>
         </div>
 
+        <div
+          id="not-logged-in-message"
+          hidden
+          class="row center scale-transition grey-text scale-out"
+        >
+          <h1>Oops! Looks like you are not logged</h1>
+        </div>
+
+        <!--
+          Product List
+        -->
         <div class="row">
           <div id="product-list"></div>
         </div>
@@ -107,14 +120,14 @@
             </p>
             <hr class="white-text" />
             <p>
-              UNPSJB, sede Trelew, 2019
+              UNPSJB, Trelew, 2019
             </p>
           </div>
           <div class="col l3 offset-l3 s12">
             <h5 class="white-text">Contact</h5>
             <p class="grey-text text-lighten-4">
-              Hecho con <i class="material-icons tiny">favorite</i> por Luciano
-              Serruya Aloisi - repo en
+              Made with <i class="material-icons tiny">favorite</i> by Luciano
+              Serruya Aloisi - repo in
               <a
                 target="_blank"
                 href="https://github.com/LucianoFromTrelew/shopping-cart-php-md"
