@@ -14,14 +14,18 @@ if (!is_logged_in()) {
     exit;
 }
 
-foreach (get_shopping_cart() as $product_id => $reserved_stock) {
-    $new_stock = -1 * abs($reserved_stock);
-    if (!update_stock($product_id, $new_stock)) {
-        http_response_code(500);
-        error_log("COULD NOT RELEASE $product_id STOCK");
-        echo json_encode(array(
-            "msg" => "COULD NOT RELEASE $product_id STOCK"
-        ));
+$cart = get_shopping_cart();
+
+if (!empty($cart)) {
+    foreach (get_shopping_cart() as $product_id => $reserved_stock) {
+        $new_stock = -1 * abs($reserved_stock);
+        if (!update_stock($product_id, $new_stock)) {
+            http_response_code(500);
+            error_log("COULD NOT RELEASE $product_id STOCK");
+            echo json_encode(array(
+                "msg" => "COULD NOT RELEASE $product_id STOCK"
+            ));
+        }
     }
 }
 
