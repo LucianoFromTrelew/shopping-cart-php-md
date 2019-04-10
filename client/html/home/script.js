@@ -9,7 +9,7 @@ import {
   displayNotLoggedInMessage,
   getTotalElementsInCart,
   showElementsInCart,
-} from './utils';
+} from '/static/js/utils';
 import {onProductAdded, onProductSubstracted, onLogout} from './events';
 import ProductList from '/static/js/ProductList';
 import customFetch from '/static/js/fetch';

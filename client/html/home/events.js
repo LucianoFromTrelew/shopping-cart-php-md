@@ -1,5 +1,5 @@
 import customFetch from '/static/js/fetch';
-import {showElementsInCart, getTotalElementsInCart} from './utils';
+import {showElementsInCart, getTotalElementsInCart} from '/static/js/utils';
 
 const onProductAdded = event => {
   showElementsInCart(getTotalElementsInCart(event.detail.cart));
