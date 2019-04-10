@@ -2,27 +2,18 @@ import {v4 as uuid} from 'uuid';
 import Product from '/static/js/Product';
 
 export default class ProductList {
-  set title(title) {
-    this.titleValue = title;
-    this.render();
-  }
-
-  get title() {
-    return titleValue;
-  }
-
   init(container) {
     this.container = container;
-    this.titleValue = this.container.dataset.title;
     this.render();
   }
 
   render() {
     this.container.innerHTML = this.markup();
 
-    for (const product of this.products) {
+    for (const i in this.products) {
+      const product = this.products[i];
       const container = document.createElement('div');
-      new Product(container, product);
+      this.products[i] = new Product(container, product);
       this.container.appendChild(container);
     }
   }
