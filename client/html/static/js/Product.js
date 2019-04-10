@@ -44,7 +44,7 @@ export default class Product {
         this.product['stock'] = stock - 1;
 
         M.toast({
-          html: 'Producto agregado al carrito correctamente',
+          html: 'Product added to your cart successfully',
           classes: 'green rounded',
         });
 
@@ -57,7 +57,7 @@ export default class Product {
       .catch(err => {
         console.log({err});
         M.toast({
-          html: `No se pudo agregar el producto al carrito :/ [${err}]`,
+          html: `Unable to add the product to your cart :/ [${err}]`,
           classes: 'red',
         });
       });
@@ -85,7 +85,7 @@ export default class Product {
         this.product['stock'] = this.getStock() + 1;
 
         M.toast({
-          html: 'Producto eliminado del carrito correctamente',
+          html: 'Product removed from your cart successfully',
           classes: 'yellow darken-2 rounded pink-text',
         });
 
@@ -98,7 +98,7 @@ export default class Product {
       .catch(err => {
         console.log({err});
         M.toast({
-          html: `No se pudo eliminar el producto del carrito; [${err}]`,
+          html: `Unable to remove the product from your cart :/ [${err}]`,
           classes: 'red',
         });
       });
