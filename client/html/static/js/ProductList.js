@@ -28,9 +28,7 @@ export default class ProductList {
   }
 
   markup() {
-    return `
-      <div class="product-list-container"></div>
-    `;
+    return ``;
   }
 
   constructor(container, products) {
