@@ -37,6 +37,10 @@ if (isset($_GET["add-product"])) {
         http_response_code(500);
         echo json_encode(array("msg" => "Error while trying to sub the product from the shopping cart :/"));
     }
+} else {
+    error_log("DEVOLVER TODOS LOS PRODUCTOS DEL CARRITO");
+    error_log(print_r(get_shopping_cart(), TRUE));
+    echo json_encode(get_shopping_cart());
 }
 
 
