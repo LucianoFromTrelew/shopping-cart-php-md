@@ -4,3 +4,7 @@
 .pd1 {
   padding: 1em;
 }
+
+#index-banner {
+  min-height: 80vh !important;
+}
