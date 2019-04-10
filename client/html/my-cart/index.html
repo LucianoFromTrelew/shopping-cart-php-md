@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0"
+    />
+    <title>Starter Template - Materialize</title>
+    <!-- CSS  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/css/style.css"
+      type="text/css"
+      media="all"
+    />
+    <link rel="stylesheet" href="./style.css" media="all" />
+  </head>
+
+  <body>
+    <!--
+      Navbar
+    -->
+    <nav class="light-blue lighten-1" role="navigation">
+      <!--Desktop navbar-->
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo">Shopping cart</a>
+
+        <ul class="right hide-on-med-and-down">
+          <li id="shopping-cart-anchor" class="hide">
+            <a href="#" class="yellow-text text-lighten">
+              <i class="material-icons">shopping_cart</i> My cart
+              <span
+                id="cart-elements"
+                class="yellow badge hide"
+                data-badge-caption="items on your cart"
+              ></span>
+            </a>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li class="login-link hide"><a href="/login/">Login</a></li>
+          <li class="logout-link hide">
+            <a href="/login/" id="logout">Logout</a>
+          </li>
+        </ul>
+
+        <!--Mobile navbar-->
+        <ul id="nav-mobile" class="sidenav">
+          <li id="shopping-cart-anchor" class="hide">
+            <a href="#"
+              ><i class="material-icons">shopping_cart</i>My cart
+              <span id="cart-elements" class="yellow badge hide"></span>
+            </a>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li class="login-link hide"><a href="/login/">Login</a></li>
+          <li class="logout-link hide">
+            <a href="/login/" id="logout">Logout</a>
+          </li>
+        </ul>
+
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+      </div>
+    </nav>
+
+    <!--
+      Content
+    -->
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container"></div>
+    </div>
+
+    <!--
+      Footer
+    -->
+    <footer class="page-footer orange">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">About</h5>
+            <p class="grey-text text-lighten-4">
+              Carrito de compras realizado como trabajo práctico para la materia
+              <b>Aplicaciones Web - Licenciatura en Sistemas OPGCPI</b>
+            </p>
+            <hr class="white-text" />
+            <p>
+              UNPSJB, Trelew, 2019
+            </p>
+          </div>
+          <div class="col l3 offset-l3 s12">
+            <h5 class="white-text">Contact</h5>
+            <p class="grey-text text-lighten-4">
+              Made with <i class="material-icons tiny">favorite</i> by Luciano
+              Serruya Aloisi - repo in
+              <a
+                target="_blank"
+                href="https://github.com/LucianoFromTrelew/shopping-cart-php-md"
+                >GitHub</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          Template made by
+          <a class="orange-text text-lighten-3" href="http://materializecss.com"
+            >Materialize</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="./script.js" charset="utf-8"></script>
+  </body>
+</html>
