@@ -1,6 +1,6 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
-import customFetch from '/static/shared/js/fetch';
+import customFetch from '/static/js/fetch';
 
 const getStock = stock => {
   return parseInt(stock) === 0 ? 'OUT' : parseInt(stock);
