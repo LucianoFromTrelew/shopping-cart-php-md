@@ -37,7 +37,7 @@ export default class Product {
 
   markup() {
     return `
-            <div class="col xl4 l6 m12 s12">
+            <div id="product-component" class="col xl4 l6 m12 s12">
               <div class="card ${this.isOutOfStock()}">
                 <div class="card-image">
                   <img src="${this.product['imageUrl']}" />
