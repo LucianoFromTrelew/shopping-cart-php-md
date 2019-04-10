@@ -31,11 +31,6 @@
   vertical-align: bottom;
 }
 
-i.material-icons.tiny {
-  color: red;
-  vertical-align: middle !important;
-}
-
 .btn-floating .material-icons {
   display: block !important;
 }

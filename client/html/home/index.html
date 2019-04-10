@@ -26,13 +26,19 @@
       Navbar
     -->
     <nav class="light-blue lighten-1" role="navigation">
+      <!--Desktop navbar-->
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">Shopping cart</a>
+        <a id="logo-container" href="/" class="brand-logo">Shopping cart</a>
 
         <ul class="right hide-on-med-and-down">
-          <li id="shopping-cart-anchor">
+          <li id="shopping-cart-anchor" class="hide">
             <a href="#" class="yellow-text text-lighten">
               <i class="material-icons">shopping_cart</i> My cart
+              <span
+                id="cart-elements"
+                class="yellow badge hide"
+                data-badge-caption="elementos en el carrito"
+              ></span>
             </a>
           </li>
           <li><a href="/about/">About</a></li>
@@ -42,9 +48,13 @@
           </li>
         </ul>
 
+        <!--Mobile navbar-->
         <ul id="nav-mobile" class="sidenav">
-          <li>
-            <a href="#"><i class="material-icons">shopping_cart</i>My cart</a>
+          <li id="shopping-cart-anchor" class="hide">
+            <a href="#"
+              ><i class="material-icons">shopping_cart</i>My cart
+              <span id="cart-elements" class="yellow badge hide"></span>
+            </a>
           </li>
           <li><a href="/about/">About</a></li>
           <li class="login-link hide"><a href="/login/">Login</a></li>

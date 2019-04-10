@@ -16,17 +16,41 @@ export default class ProductList {
       this.products[i] = new Product(container, product);
       this.container.appendChild(container);
     }
+
+    this.container.addEventListener(
+      'product-added',
+      this.onProductAddedHandler,
+    );
+
+    this.container.addEventListener(
+      'product-substracted',
+      this.onProductSubstractedHandler,
+    );
   }
 
   markup() {
     return ``;
   }
 
-  constructor(container, products) {
+  constructor(
+    container,
+    products,
+    onProductAddedHandler,
+    onProductSubstractedHandler,
+  ) {
+    /*
+     * container => element container
+     * products => products list to display
+     * onProductAddedHandler => event handler
+     * onProductSubstractedHandler => event handler
+     * */
+
     // The constructor should only contain the boiler plate code for finding or creating the reference.
     if (typeof container.dataset.ref === 'undefined') {
       this.ref = uuid();
       this.products = products;
+      this.onProductAddedHandler = onProductAddedHandler;
+      this.onProductSubstractedHandler = onProductSubstractedHandler;
       ProductList.refs[this.ref] = this;
       container.dataset.ref = this.ref;
       this.init(container);
