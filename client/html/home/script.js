@@ -1,8 +1,7 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
-import customFetch from '/static/js/fetch';
+import {getProducts} from './getProducts';
 import ProductList from '/static/js/ProductList';
-import Product from '/static/js/Product';
 
 const getStock = stock => {
   return parseInt(stock) === 0 ? 'OUT' : parseInt(stock);
@@ -18,24 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // O automáticamente
   M.AutoInit();
 
-  customFetch('/api/products.php/')
-    .then(res => {
-      if (res.status !== 200) {
-        throw new Error(res.statusText);
-      }
-      return res.json();
-    })
+  getProducts()
     .then(products => {
       document.querySelector('#spinner').classList.add('scale-out');
+      // Display logout link
       document.querySelectorAll('li.logout-link').forEach(el => {
         el.classList.remove('hide');
       });
 
       const productListContainer = document.querySelector('#product-list');
-      new ProductList(productListContainer, products);
+      const productList = new ProductList(productListContainer, products);
+      console.log({productList});
     })
     .catch(err => {
       console.log({err});
+      // Display login link
       document.querySelectorAll('li.login-link').forEach(el => {
         el.classList.remove('hide');
       });
