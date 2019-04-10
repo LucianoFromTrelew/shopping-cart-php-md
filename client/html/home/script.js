@@ -1,6 +1,8 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import customFetch from '/static/js/fetch';
+import ProductList from '/static/js/ProductList';
+import Product from '/static/js/Product';
 
 const getStock = stock => {
   return parseInt(stock) === 0 ? 'OUT' : parseInt(stock);
@@ -24,34 +26,41 @@ document.addEventListener('DOMContentLoaded', () => {
       return res.json();
     })
     .then(products => {
-      console.log({products});
       document.querySelector('#spinner').classList.add('scale-out');
       document.querySelectorAll('li.logout-link').forEach(el => {
         el.classList.remove('hide');
       });
+
+      const productListContainer = document.querySelector('#product-list');
+      new ProductList(productListContainer, products);
+      /*
       products.forEach((product, i) => {
-        const productTemplate = document.getElementById('product-card');
+        const productTemplate = document.getElementById('product-list');
 
         setTimeout(() => {
           // pasando un `true` hace un deep clone
-          const newProduct = productTemplate.cloneNode(true);
-          newProduct.classList.remove('hide');
-          newProduct.querySelector('.card-title').innerHTML = product['name'];
-          newProduct.querySelector('.card-image img').src = product['imageUrl'];
-          newProduct.querySelector('.card-content span').innerHTML =
-            product['description'];
-          newProduct.querySelector('#price').innerHTML = `$${product['price']}`;
-          const stock = getStock(product['stock']);
-          newProduct.querySelector('#stock').innerHTML = stock;
-          if (stock === 'OUT') {
-            const card = newProduct.querySelector('.card');
-            card.classList.add('disabled');
-            card.classList.add('grey');
-            card.classList.add('lighten-2');
-          }
-          productTemplate.parentNode.appendChild(newProduct);
+          const container = document.createElement('div');
+          const newProduct = new Product(container, product);
+          productTemplate.parentNode.appendChild(container);
+          //const newProduct = productTemplate.cloneNode(true);
+          //newProduct.classList.remove('hide');
+          //newProduct.querySelector('.card-title').innerHTML = product['name'];
+          //newProduct.querySelector('.card-image img').src = product['imageUrl'];
+          //newProduct.querySelector('.card-content span').innerHTML =
+          //product['description'];
+          //newProduct.querySelector('#price').innerHTML = `$${product['price']}`;
+          //const stock = getStock(product['stock']);
+          //newProduct.querySelector('#stock').innerHTML = stock;
+          //if (stock === 'OUT') {
+          //const card = newProduct.querySelector('.card');
+          //card.classList.add('disabled');
+          //card.classList.add('grey');
+          //card.classList.add('lighten-2');
+          //}
+          //productTemplate.parentNode.appendChild(newProduct);
         }, 1000 * (i + 1));
       });
+      */
     })
     .catch(err => {
       console.log({err});
