@@ -41,6 +41,13 @@ if (isset($_GET["add-product"])) {
 } else {
     error_log("DEVOLVER TODOS LOS PRODUCTOS DEL CARRITO");
     $cart = get_shopping_cart();
+
+    if (empty($cart)) {
+        http_response_code(404);
+        echo json_encode(array("msg" => "Empty cart"));
+        exit;
+    }
+
     $json = array();
     $index = 0;
     foreach ($cart as $product_id => $stock) {
