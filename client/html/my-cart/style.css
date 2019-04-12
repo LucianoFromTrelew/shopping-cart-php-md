@@ -1,0 +1,23 @@
+.product-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  height: 5em;
+  width: 5em;
+}
+
+.product-description {
+  font-size: 1.15em;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-floating {
+  display: inline-flex !important;
+}
