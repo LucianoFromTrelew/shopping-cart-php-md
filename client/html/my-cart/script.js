@@ -11,6 +11,8 @@ const onProductEvent = event => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  M.AutoInit();
+
   getShoppingCart()
     .then(products => {
       console.log({products});
