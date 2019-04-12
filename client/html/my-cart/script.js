@@ -1,37 +1,38 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import {getShoppingCart} from './getShoppingCart';
+import {onProductAdd, onProductSub, onCheckoutConfirmClick} from './events';
 import {
   displayLogout,
   displayNotProductsMessage,
+  enableCheckoutBtn,
+  disableCheckoutBtn,
   setLogout,
 } from '/static/js/utils';
 
 import ProductItem from '/static/js/ProductItem';
 import ProductList from '/static/js/ProductList';
 
-const onProductEvent = event => {
-  console.log('onProductEvent');
-  console.log({event});
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   M.AutoInit();
 
   setLogout();
-
   displayLogout();
+  document
+    .querySelector('#checkout-confirm-btn')
+    .addEventListener('click', onCheckoutConfirmClick);
+
   getShoppingCart()
     .then(products => {
-      console.log({products});
+      enableCheckoutBtn();
       const productListContainer = document.querySelector('#product-list');
 
       const productList = new ProductList(
         productListContainer,
         products,
         ProductItem,
-        onProductEvent,
-        onProductEvent,
+        onProductAdd,
+        onProductSub,
       );
     })
     .catch(err => {
