@@ -46,6 +46,14 @@ const displayNotProductsMessage = () => {
   document.querySelector('#no-products-message').classList.add('scale-in');
 };
 
+const enableCheckoutBtn = () => {
+  document.querySelector('#checkout-btn').removeAttribute('disabled');
+};
+
+const disableCheckoutBtn = () => {
+  document.querySelector('#checkout-btn').setAttribute('disabled', 'true');
+};
+
 const getTotalElementsInCart = cart => {
   if (!cart) return 0;
   const values = Object.values(cart);
@@ -78,6 +86,8 @@ export {
   displayLogin,
   displayNotLoggedInMessage,
   displayNotProductsMessage,
+  enableCheckoutBtn,
+  disableCheckoutBtn,
   getTotalElementsInCart,
   showElementsInCart,
   setLogout,
