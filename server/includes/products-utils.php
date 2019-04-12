@@ -11,7 +11,7 @@ function get_product_by_id($product_id) {
         $result = $stmt->get_result();
 
         if (empty($result->num_rows)) {
-            http_response_code(401);
+            http_response_code(400);
             echo json_encode(array(
                 "msg" => "Product does not exist"
             ));

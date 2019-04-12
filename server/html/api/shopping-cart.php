@@ -43,7 +43,7 @@ if (isset($_GET["add-product"])) {
     $cart = get_shopping_cart();
 
     if (empty($cart)) {
-        http_response_code(404);
+        http_response_code(400);
         echo json_encode(array("msg" => "Empty cart"));
         exit;
     }

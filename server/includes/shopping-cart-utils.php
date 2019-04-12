@@ -41,4 +41,7 @@ function get_shopping_cart() {
     return $_SESSION["cart"];
 }
 
+function clear_cart() {
+    unset($_SESSION["cart"]);
+}
 ?>

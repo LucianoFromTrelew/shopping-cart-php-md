@@ -13,7 +13,7 @@ if ($stmt = $link->prepare("SELECT * FROM users WHERE username=? AND PASSWORD=?"
     $result = $stmt->get_result();
 
     if (empty($result->num_rows)) {
-        http_response_code(401);
+        http_response_code(400);
         echo json_encode(array(
             "msg" => "Incorrect user or password"
         ));
