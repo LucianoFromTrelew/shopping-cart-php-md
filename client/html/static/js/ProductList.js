@@ -29,7 +29,9 @@ export default class ProductList {
   }
 
   markup() {
-    return ``;
+    throw new TypeError(
+      'Abstract class "ProductList" cannot be instantiated directly',
+    );
   }
 
   constructor(
@@ -46,19 +48,10 @@ export default class ProductList {
      * */
 
     // The constructor should only contain the boiler plate code for finding or creating the reference.
-    if (typeof container.dataset.ref === 'undefined') {
-      this.ref = uuid();
-      this.products = products;
-      this.onProductAddedHandler = onProductAddedHandler;
-      this.onProductSubstractedHandler = onProductSubstractedHandler;
-      ProductList.refs[this.ref] = this;
-      container.dataset.ref = this.ref;
-      this.init(container);
-    } else {
-      // If this element has already been instantiated, use the existing reference.
-      return ProductList.refs[container.dataset.ref];
+    if (this.constructor === ProductList) {
+      throw new TypeError(
+        'Abstract class "ProductList" cannot be instantiated directly',
+      );
     }
   }
 }
-
-ProductList.refs = {};
