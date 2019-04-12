@@ -11,7 +11,7 @@ import {
   showElementsInCart,
 } from '/static/js/utils';
 import {onProductAdded, onProductSubstracted, onLogout} from './events';
-import ProductList from '/static/js/ProductList';
+import ProductCardList from '/static/js/ProductCardList';
 import customFetch from '/static/js/fetch';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       displayCart();
 
       const productListContainer = document.querySelector('#product-list');
-      const productList = new ProductList(
+      const productList = new ProductCardList(
         productListContainer,
         products,
         onProductAdded,
