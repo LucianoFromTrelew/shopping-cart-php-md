@@ -1,5 +1,5 @@
 import customFetch from '/static/js/fetch';
-import {disableCheckoutBtn} from '/static/js/utils';
+import {disableCheckoutBtn, displayNoProductsMessage} from '/static/js/utils';
 
 const onProductAdd = event => {
   const {cart} = event.detail;
@@ -11,6 +11,7 @@ const onProductSub = ({detail}) => {
   const cartArray = Object.values(cart);
   if (!cartArray || !cartArray.length) {
     disableCheckoutBtn();
+    displayNoProductsMessage();
   }
 };
 

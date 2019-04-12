@@ -4,7 +4,7 @@ import {getShoppingCart} from './getShoppingCart';
 import {onProductAdd, onProductSub, onCheckoutConfirmClick} from './events';
 import {
   displayLogout,
-  displayNotProductsMessage,
+  displayNoProductsMessage,
   enableCheckoutBtn,
   disableCheckoutBtn,
   setLogout,
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     })
     .catch(err => {
-      displayNotProductsMessage();
+      displayNoProductsMessage();
       console.log({err});
     });
 });
