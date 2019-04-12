@@ -9,8 +9,9 @@ import {
   displayNotLoggedInMessage,
   getTotalElementsInCart,
   showElementsInCart,
+  setLogout,
 } from '/static/js/utils';
-import {onProductAdded, onProductSubstracted, onLogout} from './events';
+import {onProductAdded, onProductSubstracted} from './events';
 import ProductCard from '/static/js/ProductCard';
 import ProductList from '/static/js/ProductList';
 import customFetch from '/static/js/fetch';
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // O automáticamente
   M.AutoInit();
 
-  document.querySelector('#logout').addEventListener('click', onLogout);
+  setLogout();
 
   getProducts()
     .then(products => {

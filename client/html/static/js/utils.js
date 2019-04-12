@@ -1,4 +1,5 @@
 import customFetch from './fetch';
+import {onLogout} from './events';
 
 const encodeObj = obj => {
   /* Codifica un objeto como si fuese una URL */
@@ -64,6 +65,11 @@ const showElementsInCart = total => {
     });
   }
 };
+const setLogout = () => {
+  document.querySelectorAll('#logout').forEach(el => {
+    el.addEventListener('click', onLogout);
+  });
+};
 
 export {
   hideSpinner,
@@ -74,5 +80,6 @@ export {
   displayNotProductsMessage,
   getTotalElementsInCart,
   showElementsInCart,
+  setLogout,
   encodeObj,
 };

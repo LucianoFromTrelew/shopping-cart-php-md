@@ -1,7 +1,11 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import {getShoppingCart} from './getShoppingCart';
-import {displayNotProductsMessage} from '/static/js/utils';
+import {
+  displayLogout,
+  displayNotProductsMessage,
+  setLogout,
+} from '/static/js/utils';
 
 import ProductItem from '/static/js/ProductItem';
 import ProductList from '/static/js/ProductList';
@@ -14,6 +18,9 @@ const onProductEvent = event => {
 document.addEventListener('DOMContentLoaded', () => {
   M.AutoInit();
 
+  setLogout();
+
+  displayLogout();
   getShoppingCart()
     .then(products => {
       console.log({products});
