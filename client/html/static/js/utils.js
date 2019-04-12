@@ -40,6 +40,11 @@ const displayNotLoggedInMessage = () => {
   }, 1000);
 };
 
+const displayNotProductsMessage = () => {
+  document.querySelector('#no-products-message').removeAttribute('hidden');
+  document.querySelector('#no-products-message').classList.add('scale-in');
+};
+
 const getTotalElementsInCart = cart => {
   if (!cart) return 0;
   const values = Object.values(cart);
@@ -66,6 +71,7 @@ export {
   displayLogout,
   displayLogin,
   displayNotLoggedInMessage,
+  displayNotProductsMessage,
   getTotalElementsInCart,
   showElementsInCart,
   encodeObj,

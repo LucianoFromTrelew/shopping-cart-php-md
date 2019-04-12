@@ -1,6 +1,7 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import {getShoppingCart} from './getShoppingCart';
+import {displayNotProductsMessage} from '/static/js/utils';
 
 import ProductItem from '/static/js/ProductItem';
 import ProductList from '/static/js/ProductList';
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     })
     .catch(err => {
+      displayNotProductsMessage();
       console.log({err});
     });
 });
