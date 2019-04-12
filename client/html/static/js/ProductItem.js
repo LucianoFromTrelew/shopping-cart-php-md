@@ -80,10 +80,6 @@ export default class ProductItem extends Product {
         console.log({res});
         this.product['stock'] = this.getStock() - 1;
 
-        if (this.getStock() <= 0) {
-          this.container.remove();
-        }
-
         M.toast({
           html: 'Product removed from your cart successfully',
           classes: 'yellow darken-2 rounded pink-text',
@@ -91,7 +87,12 @@ export default class ProductItem extends Product {
 
         const productSubstractedEvent = this.createSubstractedEvent();
         productSubstractedEvent.detail.cart = res.cart;
+        console.log({productSubstractedEvent});
         this.container.dispatchEvent(productSubstractedEvent);
+
+        if (this.getStock() <= 0) {
+          this.container.remove();
+        }
 
         this.render();
       })
