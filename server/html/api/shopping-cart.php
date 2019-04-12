@@ -3,6 +3,7 @@
 require_once("_init.php");
 require_once(INCLUDES_PATH . "auth.php");
 require_once(INCLUDES_PATH . "shopping-cart-utils.php");
+require_once(INCLUDES_PATH . "products-utils.php");
 
 session_start();
 
@@ -39,8 +40,17 @@ if (isset($_GET["add-product"])) {
     }
 } else {
     error_log("DEVOLVER TODOS LOS PRODUCTOS DEL CARRITO");
-    error_log(print_r(get_shopping_cart(), TRUE));
-    echo json_encode(get_shopping_cart());
+    $cart = get_shopping_cart();
+    $json = array();
+    $index = 0;
+    foreach ($cart as $product_id => $stock) {
+        $product_row = get_product_by_id($product_id);
+        $product_row["stock"] = $stock;
+        $json[$index] = $product_row;
+        $index++;
+    }
+    http_response_code(200);
+    echo json_encode($json);
 }
 
 
