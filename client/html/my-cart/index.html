@@ -25,61 +25,104 @@
     <!--
       Navbar
     -->
-    <nav class="light-blue lighten-1" role="navigation">
-      <!--Desktop navbar-->
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="/" class="brand-logo">Shopping cart</a>
+    <header>
+      <div class="navbar-fixed">
+        <nav class="light-blue lighten-1" role="navigation">
+          <!--Desktop navbar-->
+          <div class="nav-wrapper container">
+            <div class="row">
+              <div class="col s12 m4">
+                <a
+                  id="logo-container"
+                  href="/"
+                  class="brand-logo hide-on-med-and-down"
+                  >Shopping cart</a
+                >
+              </div>
 
-        <ul class="right hide-on-med-and-down">
-          <li id="shopping-cart-anchor" class="hide">
-            <a href="/my-cart/" class="yellow-text text-lighten">
-              <i class="material-icons">shopping_cart</i> My cart
-              <span
-                id="cart-elements"
-                class="yellow badge hide"
-                data-badge-caption="items on your cart"
-              ></span>
-            </a>
-          </li>
-          <li><a href="#">About</a></li>
-          <li class="login-link hide"><a href="/login/">Login</a></li>
-          <li class="logout-link hide">
-            <a href="#" id="logout">Logout</a>
-          </li>
-        </ul>
+              <ul class="right hide-on-med-and-down">
+                <li id="shopping-cart-anchor" class="hide">
+                  <a href="/my-cart/" class="yellow-text text-lighten">
+                    <i class="material-icons">shopping_cart</i> My cart
+                    <span
+                      id="cart-elements"
+                      class="yellow badge hide"
+                      data-badge-caption="items on your cart"
+                    ></span>
+                  </a>
+                </li>
+                <li><a href="#">About</a></li>
+                <li class="login-link hide"><a href="/login/">Login</a></li>
+                <li class="logout-link hide">
+                  <a href="#" id="logout">Logout</a>
+                </li>
+              </ul>
 
-        <!--Mobile navbar-->
-        <ul id="nav-mobile" class="sidenav">
-          <li id="shopping-cart-anchor" class="hide">
-            <a href="/my-cart/"
-              ><i class="material-icons">shopping_cart</i>My cart
-              <span id="cart-elements" class="yellow badge hide"></span>
-            </a>
-          </li>
-          <li><a href="#">About</a></li>
-          <li class="login-link hide"><a href="/login/">Login</a></li>
-          <li class="logout-link hide">
-            <a href="#" id="logout">Logout</a>
-          </li>
-        </ul>
-
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
+              <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+                ><i class="material-icons">menu</i></a
+              >
+            </div>
+          </div>
+        </nav>
       </div>
-    </nav>
+      <!--Mobile navbar-->
+      <ul id="nav-mobile" class="sidenav">
+        <li id="shopping-cart-anchor" class="hide">
+          <a href="/my-cart/"
+            ><i class="material-icons">shopping_cart</i>My cart
+            <span id="cart-elements" class="yellow badge hide"></span>
+          </a>
+        </li>
+        <li><a href="#">About</a></li>
+        <li class="login-link hide"><a href="/login/">Login</a></li>
+        <li class="logout-link hide">
+          <a href="#" id="logout">Logout</a>
+        </li>
+      </ul>
+    </header>
 
     <!--
       Content
     -->
     <div class="section no-pad-bot" id="index-banner">
       <div class="container">
-        <div
-          id="no-products-message"
-          hidden
-          class="row center scale-transition grey-text scale-out"
-        >
-          <h1>There is not products in your shopping cart</h1>
+        <div class="row">
+          <!--
+            Spinner
+          -->
+          <div id="spinner" class="col s6 push-m5 scale-transition scale-out">
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--
+            Checkout button
+          -->
+          <div class="col s6 push-m4">
+            <a
+              id="checkout-btn"
+              class="btn btn-large red lighten-1 waves-effect waves-light modal-trigger"
+              href="#checkout-modal"
+              disabled
+            >
+              <i class="large material-icons">shopping_cart</i>
+              Checkout</a
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <div
+            id="no-products-message"
+            hidden
+            class="row center scale-transition grey-text scale-out"
+          >
+            <h1>There is not products in your shopping cart</h1>
+          </div>
         </div>
 
         <!--
@@ -88,6 +131,24 @@
         <div class="row">
           <div id="product-list"></div>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="checkout-modal" class="modal">
+      <div class="modal-content">
+        <h4>Checkout</h4>
+        <p>Are you sure you want to checkout this products?</p>
+      </div>
+      <div class="modal-footer">
+        <a
+          id="checkout-confirm-btn"
+          class="modal-close waves-effect waves-green btn"
+          >Agree</a
+        >
+        <a href="#" class="modal-close waves-effect waves-red btn red"
+          >Cancel</a
+        >
       </div>
     </div>
 
